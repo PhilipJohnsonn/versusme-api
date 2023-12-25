@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import versusme.entity.Deporte;
+import versusme.entity.Sport;
 import versusme.exception.ResourceNotFoundException;
 import versusme.repository.DeporteRepository;
 
@@ -23,20 +23,20 @@ public class DeporteController {
 	private DeporteRepository deporteRepository;
 	
 	@GetMapping("/")
-	public List<Deporte> getAllDeportes(){
+	public List<Sport> getAllDeportes(){
 		return this.deporteRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Deporte> getDeporteById(@PathVariable(value = "id") Long deporteId)
+	public ResponseEntity<Sport> getDeporteById(@PathVariable(value = "id") Long deporteId)
 			throws ResourceNotFoundException {
-		Deporte deporte = deporteRepository.findById(deporteId)
+		Sport deporte = deporteRepository.findById(deporteId)
 				.orElseThrow(() -> new ResourceNotFoundException("Deporte no encontrado con el ID :: " + deporteId));
 		return ResponseEntity.ok().body(deporte);
 	}
 
 	@PostMapping("/crear")
-	public Deporte createDeporte(@RequestBody Deporte deporte) {
+	public Sport createDeporte(@RequestBody Sport deporte) {
 		return deporteRepository.save(deporte);
 	}
 
