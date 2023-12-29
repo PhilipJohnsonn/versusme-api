@@ -1,7 +1,5 @@
 package versusme.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "User")
+@Table(name = "User", schema = "public")
 public class User {
 
     @Id
@@ -42,11 +40,11 @@ public class User {
     @Column(name = "maxDistance")
     private Double maxDistance;
     
-    private List<Sport> userSports;
-    
-    private List<SportMatch> matchHistory;
-    
-    private List<User> friends;
+//    private List<Sport> userSports;
+//    
+//    private List<SportMatch> matchHistory;
+//    
+//    private List<User> friends;
 
 	public Long getUserId() {
 		return userId;
@@ -120,28 +118,28 @@ public class User {
 		this.maxDistance = maxDistance;
 	}
 
-	public List<Sport> getUserSports() {
-		return userSports;
-	}
-
-	public void setUserSports(List<Sport> userSports) {
-		this.userSports = userSports;
-	}
-
-	public List<SportMatch> getMatchHistory() {
-		return matchHistory;
-	}
-
-	public void setMatchHistory(List<SportMatch> matchHistory) {
-		this.matchHistory = matchHistory;
-	}
-
-	public List<User> getFriends() {
-		return friends;
-	}
-
-	public void setFriends(List<User> friends) {
-		this.friends = friends;
-	}
+//	public List<Sport> getUserSports() {
+//		return userSports;
+//	}
+//
+//	public void setUserSports(List<Sport> userSports) {
+//		this.userSports = userSports;
+//	}
+//
+//	public List<SportMatch> getMatchHistory() {
+//		return matchHistory;
+//	}
+//
+//	public void setMatchHistory(List<SportMatch> matchHistory) {
+//		this.matchHistory = matchHistory;
+//	}
+//
+//	public List<User> getFriends() {
+//		return friends;
+//	}
+//
+//	public void setFriends(List<User> friends) {
+//		this.friends = friends;
+//	}
     
 }
